@@ -30,15 +30,17 @@ export default async function LoginPage({
         <AuthForm mode="login" next={safeNextPath(params.next)} />
       </div>
 
-      <div className="mt-6 rounded-2xl border border-dashed border-line bg-cream/70 p-4">
-        <p className="text-xs font-black uppercase tracking-[0.16em] text-muted">Cuentas demo</p>
-        <p className="mt-2 text-sm font-semibold text-ink">
-          chacha@demo.com · <span className="font-mono">demo1234</span>
-        </p>
-        <p className="text-sm font-semibold text-ink">
-          vecino@demo.com · <span className="font-mono">demo1234</span>
-        </p>
-      </div>
+      {process.env.NODE_ENV !== "production" ? (
+        <div className="mt-6 rounded-2xl border border-dashed border-line bg-cream/70 p-4">
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-muted">Cuentas demo</p>
+          <p className="mt-2 text-sm font-semibold text-ink">
+            chacha@demo.com · <span className="font-mono">demo1234</span>
+          </p>
+          <p className="text-sm font-semibold text-ink">
+            vecino@demo.com · <span className="font-mono">demo1234</span>
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
