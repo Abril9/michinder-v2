@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            Chacha va a volver
+            Mascotas perdidas y encontradas
           </div>
           <div
             style={{

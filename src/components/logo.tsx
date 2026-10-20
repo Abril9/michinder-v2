@@ -22,12 +22,7 @@ export function Logo({ size = 44, withText = true, href = "/", className }: Logo
         className="drop-shadow-sm"
       />
       {withText ? (
-        <span className="leading-none">
-          <span className="block text-xl font-black tracking-tight text-ink">{SITE_NAME}</span>
-          <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
-            Chacha va a volver
-          </span>
-        </span>
+        <span className="text-xl font-black tracking-tight text-ink">{SITE_NAME}</span>
       ) : null}
     </span>
   );

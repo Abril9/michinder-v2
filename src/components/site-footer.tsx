@@ -8,8 +8,7 @@ export function SiteFooter() {
         <div>
           <Logo size={36} />
           <p className="mt-3 max-w-sm text-sm font-semibold text-muted">
-            Michinder es un espacio para que las mascotas perdidas vuelvan a casa. El logo es
-            Chacha, una gatita negra con pañuelo rojo que todavía está volviendo.
+            Michinder es un espacio para que las mascotas perdidas vuelvan a casa.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-extrabold text-muted">

@@ -11,8 +11,7 @@ export default function NotFound() {
         Esta página también se perdió
       </h1>
       <p className="mt-2 max-w-md text-sm font-semibold text-muted">
-        Pero no te preocupes: Chacha va a volver y esta página no. Probá desde el inicio o
-        explorá los avisos.
+        La página que buscás no existe. Probá desde el inicio o explorá los avisos.
       </p>
       <div className="mt-5 flex gap-2">
         <ButtonLink href="/">Ir al inicio</ButtonLink>
