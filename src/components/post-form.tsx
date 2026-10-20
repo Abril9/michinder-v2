@@ -205,7 +205,7 @@ export function PostForm({
             label="Nombre (si lo sabés)"
             name="petName"
             defaultValue={initial?.petName ?? ""}
-            placeholder="Ej. Chacha"
+            placeholder="Ej. Luna"
             maxLength={60}
             error={state.fieldErrors?.petName?.[0]}
           />
