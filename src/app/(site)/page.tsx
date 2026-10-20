@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, MessageCircle, Search } from "lucide-react";
 import { HomeHero } from "@/components/home-hero";
@@ -93,43 +92,6 @@ export default async function HomePage() {
             title="Chateá y coordiná"
             text="El swipe a la derecha abre un chat con límite anti-spam. También podés compartir por WhatsApp."
           />
-        </div>
-      </section>
-
-      <section className="my-14 overflow-hidden rounded-[2rem] bg-ink text-cream">
-        <div className="grid items-center gap-6 p-6 sm:p-10 md:grid-cols-[0.8fr_1.2fr]">
-          <Image
-            src="/logo.svg"
-            alt="Chacha"
-            width={220}
-            height={220}
-            className="mx-auto w-40 rounded-[2rem] sm:w-52"
-          />
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-peach">
-              La historia detrás del logo
-            </p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight">
-              Chacha está perdida. Va a volver.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-cream/75">
-              Es una gatita negra con un pañuelito rojo. Su cara nos recuerda por qué existe
-              Michinder: porque buscar a una mascota no debería depender de la suerte ni de
-              cincuenta grupos de WhatsApp.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <ButtonLink href="/explorar?estado=encontrado&especie=gato" variant="primary">
-                Ver gatos encontrados
-              </ButtonLink>
-              <ButtonLink
-                href="/publicar?estado=perdido&especie=gato"
-                variant="outline"
-                className="border-white/25 bg-white/10 text-cream hover:bg-white/20"
-              >
-                Publicar aviso de Chacha
-              </ButtonLink>
-            </div>
-          </div>
         </div>
       </section>
     </div>
