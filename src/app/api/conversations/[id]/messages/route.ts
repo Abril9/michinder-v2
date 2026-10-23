@@ -58,6 +58,7 @@ export async function GET(
     .order("created_at", { ascending: true })
     .limit(100);
 
+  // Polling incremental: el cliente manda el timestamp del último mensaje.
   if (after && !Number.isNaN(new Date(after).getTime())) {
     query = query.gt("created_at", after);
   }

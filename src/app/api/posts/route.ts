@@ -40,6 +40,7 @@ export async function GET(request: NextRequest) {
   const user = await getCurrentUser();
 
   try {
+    // La sesión es opcional: sin usuario, la RPC omite coordenadas exactas.
     const posts = await getNearbyPosts({
       status,
       species: speciesMap[searchParams.get("especie") ?? ""],

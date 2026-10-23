@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { swipeSchema } from "@/lib/validation";
 
+// La RPC lanza códigos de negocio; acá se traducen a HTTP y a texto para la UI.
 const messages: Record<string, { status: number; error: string }> = {
   CHAT_LIMIT: {
     status: 429,
