@@ -2,11 +2,31 @@
 
 ## Capas
 
-- **UI**: App Router, Server Components para datos y Client Components para interacción.
-- **API**: route handlers para explorar, swipe, mensajes, reportes, bloqueos y no leídos.
-- **Datos**: consultas tipadas en `src/lib/data` con Supabase server client.
-- **Base**: Postgres + PostGIS, RLS, vistas públicas, triggers y RPCs.
-- **Storage**: bucket público `post-photos`, fotos optimizadas en WebP.
+```text
+UI        App Router: Server Components para datos, Client Components para interacción
+API       Route Handlers (/api/*) y Server Actions
+Datos     src/lib/data: consultas tipadas a Supabase
+Base      Postgres + PostGIS, RLS, vistas, triggers y RPCs
+Storage   Bucket público post-photos
+```
+
+Cada capa depende solo de la siguiente. La UI no conoce SQL; la base no conoce React.
+
+## Ciclo de una request
+
+1. `src/proxy.ts` refresca la sesión de Supabase usando las cookies.
+2. El layout correspondiente resuelve el usuario con `getCurrentUser()` (memoizado por request).
+3. La página pide datos a `src/lib/data/*`.
+4. La consulta llega a Supabase con el JWT del usuario; RLS decide qué filas puede ver.
+5. Si hay escritura, pasa por una Server Action o una ruta `/api` con validación Zod.
+
+## Render
+
+- **Server Components**: home, explorar (shell), detalle, chats, perfil, mis publicaciones.
+- **Client Components**: formularios, swipe, mapa, chat, filtros y botones con estado.
+- **Marcos de página**: `LayoutPublico` (header, footer y navegación móvil) y `LayoutAcceso` (login y registro). Reemplazan a los route groups y se envuelven en cada página, así las URLs no dependen de nombres entre paréntesis.
+- Los datos sensibles (coordenadas exactas, WhatsApp) se resuelven en el servidor: el cliente recibe `null` cuando no corresponde.
+- El mapa de Leaflet se carga con `dynamic import` para no pesar en el bundle inicial.
 
 ## Rutas
 
@@ -31,9 +51,11 @@
 - `interactions`: like/pass único por usuario y aviso.
 - `conversations`: dueño del aviso e interesado, único por aviso/interesado.
 - `messages`: cuerpo de 1 a 1000 caracteres.
-- `conversation_reads`: último lectura por usuario.
+- `conversation_reads`: última lectura por usuario.
 - `blocks`: bloqueos entre usuarios.
 - `reports`: reportes de aviso o usuario.
+
+Detalle de columnas, RLS y RPCs en [base-de-datos.md](base-de-datos.md).
 
 ## Búsqueda
 
@@ -43,20 +65,23 @@
 - Exclusión de avisos propios, ya swipeados y de usuarios bloqueados.
 - Intersección de radios: `distancia <= radio_usuario + search_radius_km`.
 - Distancia calculada con `ST_Distance` sobre geografía.
+- Límite de 300 resultados.
+
+La intersección de radios es una decisión de producto: una mascota perdida puede haberse movido, así que no alcanza con medir la distancia al centro del aviso.
 
 ## Chat
 
 - `swipe_post` crea la conversación al hacer like y aplica límites anti-spam.
 - `send_message` valida pertenencia, bloqueo, límites y duplicados.
 - `mark_conversation_read` actualiza la lectura.
-- El cliente hace polling cada 3 s y deduplica por `id`.
+- El cliente hace polling cada 3 s, pide solo mensajes posteriores a `after` y deduplica por `id`.
 - No se usa Realtime en v1.
 
 ## Seguridad
 
 - RLS activo en todas las tablas de dominio.
-- `posts` no es legible por `anon`; solo por usuarios autenticados.
-- Vistas `profiles_public` y `posts_public` devuelven `null` para ubicación exacta y WhatsApp sin sesión.
+- `posts` no es legible por `anon`; solo por usuarios autenticados o a través de `posts_public` / `nearby_posts`.
+- `profiles_public` y `posts_public` devuelven `null` para ubicación exacta y WhatsApp sin sesión.
 - `nearby_posts` calcula distancias para invitados sin exponer coordenadas.
 - El servidor valida con Zod; el cliente no es fuente de verdad.
 - La ubicación exacta se renderiza solo para usuarios con sesión.
@@ -71,6 +96,10 @@
 - 20 mensajes por minuto.
 - 200 mensajes por día.
 - Mensaje duplicado bloqueado por 30 segundos.
+- Login: 8 intentos por email cada 15 minutos.
+- Registro: 5 intentos por email cada 15 minutos.
+
+Los límites de chat viven en la base; los de login/registro en memoria del proceso (`src/lib/rate-limit.ts`). En serverless, la memoria no se comparte entre instancias: si el tráfico crece, migrar a Redis/Upstash.
 
 ## Decisiones de simplicidad
 
@@ -79,3 +108,13 @@
 - Sin edición de fotos en avisos existentes.
 - Datos demo idempotentes con IDs fijos.
 - Un solo bucket público para fotos.
+
+El resto de las decisiones está en [decisiones.md](decisiones.md).
+
+## Documentación relacionada
+
+- Flujos paso a paso: [flujos.md](flujos.md)
+- Contratos de API: [api.md](api.md)
+- Esquema y RLS: [base-de-datos.md](base-de-datos.md)
+- Producción: [despliegue.md](despliegue.md)
+- Convenciones: [convenciones.md](convenciones.md)

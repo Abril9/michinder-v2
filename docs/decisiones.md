@@ -4,7 +4,7 @@
 
 **Decisión**: App Router con Server Components y Supabase como backend único.
 
-**Motivo**: Menos piezas, auth y storage integrados, Postgres con PostGIS para radio y despliegue simple en Vercel.
+**Motivo**: Menos piezas, auth y storage integrados, Postgres con PostGIS para radio y despliegue simple en Netlify.
 
 ## ADR-02 · Backend real desde el inicio
 
@@ -52,10 +52,28 @@
 
 **Decisión**: Los límites viven en RPCs de Postgres.
 
-**Motivo**: No dependen del cliente ni de memoria del servidor; funcionan igual en Vercel.
+**Motivo**: No dependen del cliente ni de memoria del servidor; funcionan igual en cualquier hosting.
 
 ## ADR-10 · Datos demo en Santa Fe
 
 **Decisión**: 16 avisos, 3 usuarios y 2 chats con IDs fijos e idempotentes.
 
 **Motivo**: Permite probar filtros, swipe, chats y WhatsApp sin depender de datos externos.
+
+## ADR-11 · Netlify + Supabase Cloud
+
+**Decisión**: La app se despliega en Netlify y el backend en Supabase Cloud.
+
+**Motivo**: Netlify se integra con GitHub sin configuración extra y Supabase concentra base, auth y storage. Las variables `NEXT_PUBLIC_*` se embeben en build, así que todo cambio requiere redeploy.
+
+## ADR-12 · Rate limit de auth en memoria
+
+**Decisión**: Login y registro se limitan con un `Map` en memoria del proceso.
+
+**Motivo**: Evita fuerza bruta básica sin sumar infraestructura. En serverless cada instancia tiene su propio contador, por lo que no es un límite global; si el tráfico crece, migrar a Redis/Upstash. Los límites de chat sí viven en la base.
+
+## ADR-13 · Confirmación de email desactivada en v1
+
+**Decisión**: Para el MVP, el registro crea sesión sin confirmar el correo.
+
+**Motivo**: El plan gratuito de Supabase limita los emails por hora y la confirmación agrega fricción al alta. Si se activa, hay que configurar SMTP propio antes de abrir el registro.

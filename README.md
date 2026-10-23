@@ -1,6 +1,6 @@
 # Michinder
 
-App web para publicar y encontrar mascotas perdidas o encontradas. Nació como homenaje a Chacha, una gatita negra con pañuelo rojo.
+App web para publicar y encontrar mascotas perdidas o encontradas. El logo es una gatita negra con pañuelo rojo.
 
 ## Stack
 
@@ -40,7 +40,7 @@ npm run local
 
 | Email | Contraseña | Rol |
 | --- | --- | --- |
-| `chacha@demo.com` | `demo1234` | Autora de Chacha |
+| `chacha@demo.com` | `demo1234` | Cuenta demo principal |
 | `vecino@demo.com` | `demo1234` | Vecino que encuentra mascotas |
 | `sofia@demo.com` | `demo1234` | Otros avisos |
 
@@ -63,12 +63,13 @@ Los datos demo están en Santa Fe, Argentina.
 ## Estructura
 
 ```text
-src/app/          rutas, layouts y API
-src/components/   UI reutilizable y componentes de dominio
+src/app/          páginas, rutas y API
+src/components/   UI, componentes de dominio y marcos de página
 src/lib/          auth, datos, validaciones, formato, geo y tipos
-supabase/         migración inicial
+src/lib/acciones/ Server Actions de auth, avisos y perfil
+supabase/         migraciones y configuración local
 scripts/          seed demo
-docs/             ideas, plan, arquitectura y pruebas
+docs/             documentación técnica (ver docs/README.md)
 public/seed/      fotos demo
 ```
 
@@ -85,12 +86,36 @@ public/seed/      fotos demo
 
 ## Deploy
 
-1. Crear proyecto en Supabase Cloud y aplicar `supabase/migrations/20261020000000_init.sql`.
-2. Configurar en Vercel:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `NEXT_PUBLIC_APP_URL`
-3. Deploy con Vercel.
+1. Crear el proyecto en Supabase Cloud y linkearlo:
+
+   ```bash
+   npx supabase login
+   npx supabase link --project-ref <project-ref>
+   npx supabase db push
+   ```
+
+2. Configurar en Netlify:
+   - `NEXT_PUBLIC_SUPABASE_URL` (URL del proyecto Supabase)
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable o anon del mismo proyecto)
+   - `SUPABASE_SERVICE_ROLE_KEY` (solo servidor)
+   - `NEXT_PUBLIC_APP_URL` (URL del sitio en Netlify)
+3. Deploy desde Netlify. Si cambiás variables `NEXT_PUBLIC_*`, hace falta **Clear cache and deploy site**: se embeben en el build.
 
 La `SUPABASE_SERVICE_ROLE_KEY` solo se usa en el servidor y nunca debe exponerse con prefijo `NEXT_PUBLIC_`.
+
+Guía completa, seed en Cloud y troubleshooting: [docs/despliegue.md](docs/despliegue.md).
+
+## Documentación
+
+| Documento | Contenido |
+| --- | --- |
+| [docs/README.md](docs/README.md) | Índice y orden de lectura |
+| [docs/arquitectura.md](docs/arquitectura.md) | Capas, rutas y render |
+| [docs/flujos.md](docs/flujos.md) | Flujos end-to-end y dónde tocar cada cosa |
+| [docs/api.md](docs/api.md) | Endpoints y Server Actions |
+| [docs/base-de-datos.md](docs/base-de-datos.md) | Tablas, RLS, RPCs y Storage |
+| [docs/convenciones.md](docs/convenciones.md) | Estilo, capas y cómo agregar features |
+| [docs/despliegue.md](docs/despliegue.md) | Supabase Cloud + Netlify |
+| [docs/decisiones.md](docs/decisiones.md) | ADRs |
+| [docs/pruebas.md](docs/pruebas.md) | Pruebas y resultados |
+| [docs/plan.md](docs/plan.md) | Roadmap |

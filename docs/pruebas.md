@@ -72,3 +72,22 @@ psql "postgresql://postgres:postgres@127.0.0.1:54322/postgres" \
 ```
 
 Las pruebas E2E crean un aviso, un mensaje y un reporte temporales. El aviso se elimina desde la propia UI; el mensaje y el reporte se limpian con SQL después de la prueba.
+
+## Producción
+
+Verificado contra `https://michinder.netlify.app` (Supabase Cloud):
+
+| Prueba | Estado |
+| --- | --- |
+| `GET /api/posts` responde 200 con avisos | OK |
+| Home muestra avisos (no el estado vacío) | OK |
+| Login con `chacha@demo.com` / `demo1234` redirige al home | OK |
+| Registro de cuenta nueva | Bloqueado por `email rate limit exceeded` |
+
+El registro falla solo por el límite de emails del plan gratuito de Supabase. Para completar la prueba:
+
+1. Desactivar **Confirm email** en Supabase (Authentication → Sign In / Providers → Email), o
+2. Esperar a que se libere el cupo, o
+3. Configurar SMTP propio.
+
+Con la configuración corregida, repetir el registro y verificar que redirige al home con sesión activa. Ver [despliegue.md](despliegue.md).

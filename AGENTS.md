@@ -38,9 +38,9 @@ export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"; nvm use 22
 
 ## Arquitectura
 
-- `src/app/(site)` rutas públicas y de usuario.
-- `src/app/(auth)` login y registro.
+- `src/app` rutas públicas, de usuario y de acceso (`/ingresar`, `/registrarme`).
 - `src/app/api` endpoints de explorar, swipe, chats, reportes, bloqueos y no leídos.
+- `src/lib/acciones` Server Actions de auth, avisos y perfil.
 - `src/lib/data` consultas tipadas a Supabase.
 - `src/lib/supabase` clientes server/browser/admin.
 - `src/components` UI y componentes de dominio.

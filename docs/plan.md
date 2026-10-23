@@ -51,7 +51,7 @@
 - [x] Probar el flujo completo con dos cuentas en local.
 - [x] Verificar que invitados no reciban ubicación exacta ni WhatsApp.
 - [ ] Probar el flujo completo con dos cuentas en producción.
-- [ ] Configurar Supabase Cloud y Vercel.
+- [x] Configurar Supabase Cloud y Netlify.
 - [ ] Notificaciones y panel admin (post-v1).
 
 ## Próximos pasos sugeridos
