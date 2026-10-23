@@ -4,7 +4,11 @@ import { AppHeader } from "@/components/app-header";
 import { MobileNav } from "@/components/mobile-nav";
 import { SiteFooter } from "@/components/site-footer";
 
-export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+/**
+ * Marco de las páginas públicas y de usuario: header, footer y navegación móvil.
+ * Reemplaza al route group `(site)` sin agregar segmentos a la URL.
+ */
+export async function LayoutPublico({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser();
   const unread = user ? await getUnreadCount() : 0;
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LayoutPublico } from "@/components/layout-publico";
 import { ExploreClient } from "@/components/explore-client";
 import { getCurrentUser } from "@/lib/auth";
 import type { ExploreFilters, PetAge, PetSex, PetSize, PetSpecies, PetStatus } from "@/lib/types";
@@ -58,10 +59,12 @@ export default async function ExplorePage({
   const user = await getCurrentUser();
 
   return (
-    <ExploreClient
-      initialFilters={initialFilters}
-      isLoggedIn={Boolean(user)}
-      initialRadius={initialRadius}
-    />
+    <LayoutPublico>
+      <ExploreClient
+        initialFilters={initialFilters}
+        isLoggedIn={Boolean(user)}
+        initialRadius={initialRadius}
+      />
+    </LayoutPublico>
   );
 }

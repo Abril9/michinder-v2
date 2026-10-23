@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LayoutPublico } from "@/components/layout-publico";
 import { requireUser } from "@/lib/auth";
 import { PostForm } from "@/components/post-form";
 import type { PetSpecies, PetStatus } from "@/lib/types";
@@ -34,23 +35,25 @@ export default async function PublishPage({
   await requireUser(redirectQuery ? `/publicar?${redirectQuery}` : "/publicar");
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
-      <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">Nuevo aviso</p>
-      <h1 className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">
-        {defaultStatus === "lost" ? "Perdí una mascota" : "Encontré una mascota"}
-      </h1>
-      <p className="mt-2 max-w-2xl text-sm font-semibold leading-relaxed text-muted">
-        Cuanta más información y fotos, más chances de que vuelva con su familia. La ubicación
-        exacta ayuda a coordinar sin vueltas.
-      </p>
+    <LayoutPublico>
+      <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">Nuevo aviso</p>
+        <h1 className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">
+          {defaultStatus === "lost" ? "Perdí una mascota" : "Encontré una mascota"}
+        </h1>
+        <p className="mt-2 max-w-2xl text-sm font-semibold leading-relaxed text-muted">
+          Cuanta más información y fotos, más chances de que vuelva con su familia. La ubicación
+          exacta ayuda a coordinar sin vueltas.
+        </p>
 
-      <div className="mt-6">
-        <PostForm
-          mode="create"
-          defaultStatus={defaultStatus}
-          defaultSpecies={defaultSpecies}
-        />
+        <div className="mt-6">
+          <PostForm
+            mode="create"
+            defaultStatus={defaultStatus}
+            defaultSpecies={defaultSpecies}
+          />
+        </div>
       </div>
-    </div>
+    </LayoutPublico>
   );
 }
