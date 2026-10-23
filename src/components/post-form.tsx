@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { toast } from "sonner";
-import { createPostAction, updatePostAction } from "@/app/(site)/publicar/actions";
+import { createPostAction, updatePostAction } from "@/lib/acciones/avisos";
 import { LocationPicker } from "@/components/location-picker";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -245,7 +245,7 @@ export function PostForm({
             className="w-full rounded-2xl border border-line bg-white px-4 py-3 text-base leading-relaxed focus:border-coral focus:outline-none"
           />
           {state.fieldErrors?.description?.[0] ? (
-            <span className="mt-1 block text-xs font-bold text-red-600">
+            <span className="mt-1 block text-xs font-bold text-fucsia">
               {state.fieldErrors.description[0]}
             </span>
           ) : null}
@@ -350,6 +350,7 @@ export function PostForm({
             value={location}
             label={locationLabel}
             radiusKm={radiusKm}
+            error={state.fieldErrors?.locationLabel?.[0]}
             onValueChange={setLocation}
             onLabelChange={setLocationLabel}
             onRadiusChange={setRadiusKm}
@@ -358,14 +359,14 @@ export function PostForm({
       </section>
 
       {state.error ? (
-        <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+        <p className="rounded-2xl bg-fucsia px-4 py-3 text-sm font-bold text-blanco">
           {state.error}
         </p>
       ) : null}
 
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-[1.7rem] border border-line bg-white/75 p-5">
         <p className="flex items-center gap-1.5 text-xs font-bold text-muted">
-          <ShieldCheck size={15} className="text-leaf" /> La ubicación exacta se muestra en el
+          <ShieldCheck size={15} className="text-verde" /> La ubicación exacta se muestra en el
           detalle.
         </p>
         <div className="flex gap-2">
@@ -411,21 +412,21 @@ function StatusButton({
         "rounded-2xl border p-4 text-left transition-colors",
         active
           ? tone === "lost"
-            ? "border-coral bg-red-50"
-            : "border-leaf bg-emerald-50"
-          : "border-line bg-white hover:border-ink/20",
+            ? "border-fucsia bg-blanco"
+            : "border-verde bg-blanco"
+          : "border-negro-tenue bg-blanco hover:border-negro/20",
       )}
     >
       <span
         className={cn(
-          "flex h-9 w-9 items-center justify-center rounded-full text-white",
-          tone === "lost" ? "bg-coral" : "bg-leaf",
+          "flex h-9 w-9 items-center justify-center rounded-full text-blanco",
+          tone === "lost" ? "bg-fucsia" : "bg-verde",
         )}
       >
         {active ? <Check size={18} /> : tone === "lost" ? "🔎" : "🏠"}
       </span>
       <span className="mt-3 block text-base font-black">{title}</span>
-      <span className="mt-0.5 block text-xs font-semibold text-muted">{text}</span>
+      <span className="mt-0.5 block text-xs font-semibold text-negro-suave">{text}</span>
     </button>
   );
 }
@@ -442,7 +443,7 @@ function Field({
         {...props}
         className="h-12 w-full rounded-2xl border border-line bg-white px-4 text-base placeholder:text-muted/60 focus:border-coral focus:outline-none"
       />
-      {error ? <span className="mt-1 block text-xs font-bold text-red-600">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs font-bold text-fucsia">{error}</span> : null}
     </label>
   );
 }
@@ -477,7 +478,7 @@ function SelectField({
           </option>
         ))}
       </select>
-      {error ? <span className="mt-1 block text-xs font-bold text-red-600">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs font-bold text-fucsia">{error}</span> : null}
     </label>
   );
 }

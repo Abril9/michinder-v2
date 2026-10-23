@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { Loader2, Save } from "lucide-react";
-import { updateProfileAction } from "@/app/(site)/perfil/actions";
+import { updateProfileAction } from "@/lib/acciones/perfil";
 import { Button } from "@/components/ui/button";
 import type { FormState } from "@/lib/action-state";
 import type { Profile } from "@/lib/types";
@@ -58,12 +58,12 @@ export function ProfileForm({ profile }: { profile: Profile }) {
       </label>
 
       {state.error ? (
-        <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+        <p className="rounded-2xl bg-fucsia px-4 py-3 text-sm font-bold text-blanco">
           {state.error}
         </p>
       ) : null}
       {state.message ? (
-        <p className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800">
+        <p className="rounded-2xl bg-verde px-4 py-3 text-sm font-bold text-blanco">
           {state.message}
         </p>
       ) : null}
@@ -88,7 +88,7 @@ function Field({
         {...props}
         className="h-12 w-full rounded-2xl border border-line bg-white px-4 text-base placeholder:text-muted/60 focus:border-coral focus:outline-none"
       />
-      {error ? <span className="mt-1 block text-xs font-bold text-red-600">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs font-bold text-fucsia">{error}</span> : null}
     </label>
   );
 }

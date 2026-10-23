@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { loginAction, registerAction } from "@/app/(auth)/actions";
+import { loginAction, registerAction } from "@/lib/acciones/autenticacion";
 import { Button } from "@/components/ui/button";
 import type { AuthState } from "@/lib/action-state";
 
@@ -65,18 +65,18 @@ export function AuthForm({
       ) : null}
 
       {state.error ? (
-        <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+        <p className="rounded-2xl bg-fucsia px-4 py-3 text-sm font-bold text-blanco">
           {state.error}
         </p>
       ) : null}
 
       {state.message ? (
-        <p className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800">
+        <p className="rounded-2xl bg-verde px-4 py-3 text-sm font-bold text-blanco">
           {state.message}
         </p>
       ) : null}
 
-      <Button type="submit" disabled={pending} className="w-full" size="lg">
+      <Button type="submit" disabled={pending} className="w-full" size="lg" brandIcon>
         {pending ? "Un segundo..." : isRegister ? "Crear mi cuenta" : "Ingresar"}
       </Button>
 
@@ -105,7 +105,7 @@ function Field({
         {...props}
         className="h-12 w-full rounded-2xl border border-line bg-white px-4 text-base text-ink placeholder:text-muted/60 focus:border-coral focus:outline-none"
       />
-      {error ? <span className="mt-1 block text-xs font-bold text-red-600">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs font-bold text-fucsia">{error}</span> : null}
     </label>
   );
 }

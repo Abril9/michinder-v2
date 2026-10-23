@@ -7,7 +7,7 @@ import {
   deletePostAction,
   reopenPostAction,
   resolvePostAction,
-} from "@/app/(site)/mis-publicaciones/actions";
+} from "@/lib/acciones/gestion-avisos";
 import { buttonClass } from "@/components/ui/button";
 
 export function PostOwnerActions({
