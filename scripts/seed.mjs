@@ -54,12 +54,12 @@ const posts = [
     author: "chacha@demo.com",
     status: "lost",
     species: "cat",
-    petName: "Chacha",
+    petName: "Nala",
     sex: "female",
     age: "adult",
     size: "small",
     description:
-      "Gata negra de ojos amarillos, pañuelo rojo. Es muy asustadiza pero no agresiva. Se perdió cerca de la plaza del barrio Sur. Tiene una mancha blanca chiquita en el pecho. La estamos buscando con toda la familia.",
+      "Gata negra de ojos amarillos. Es muy asustadiza pero no agresiva. Se perdió cerca de la plaza del barrio Sur. Tiene una mancha blanca chiquita en el pecho. La estamos buscando con toda la familia.",
     locationLabel: "Barrio Sur, cerca de la plaza",
     lat: -31.645,
     lng: -60.708,
@@ -454,7 +454,7 @@ async function seedConversations(ids) {
         {
           id: "d1000000-0000-4000-8000-000000000001",
           sender: ids.get("vecino@demo.com"),
-          body: "Hola, creo que vi a Chacha anoche cerca de la plaza. Era negra y tenía algo rojo en el cuello.",
+          body: "Hola, creo que vi a Nala anoche cerca de la plaza. Era negra y tenía un collar rojo.",
           minutesAgo: 95,
         },
         {
