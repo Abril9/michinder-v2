@@ -1,3 +1,7 @@
+/**
+ * Schemas de entrada compartidos por formularios, Server Actions y rutas /api.
+ * El cliente puede validar antes de enviar, pero el servidor siempre revalida.
+ */
 import { z } from "zod";
 
 const emptyToUndefined = (value: unknown) =>

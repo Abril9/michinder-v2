@@ -2,6 +2,10 @@ import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import type { Database } from "@/lib/database.types";
 
+/**
+ * Cliente para Server Components, Server Actions y Route Handlers.
+ * Lee y escribe cookies para mantener la sesión; nunca importar desde el navegador.
+ */
 export async function createClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

@@ -58,6 +58,10 @@ export async function getUnreadCount(): Promise<number> {
   return Number(data ?? 0);
 }
 
+/**
+ * Contexto completo de una sala: post, otro usuario y mensajes.
+ * Devuelve `null` si la conversación no existe o si bloqueaste a la otra persona.
+ */
 export async function getConversationContext(
   conversationId: string,
   userId: string,

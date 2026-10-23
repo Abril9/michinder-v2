@@ -77,6 +77,10 @@ function mapPost(row: RawPost): Post {
   };
 }
 
+/**
+ * Búsqueda principal de avisos. Delega en `nearby_posts`, que aplica filtros,
+ * bloqueos e intersección de radios. Los invitados no reciben coordenadas.
+ */
 export async function getNearbyPosts(filters: PostFilters): Promise<Post[]> {
   const supabase = await createClient();
   const { data, error } = await supabase.rpc("nearby_posts", {
@@ -95,6 +99,10 @@ export async function getNearbyPosts(filters: PostFilters): Promise<Post[]> {
   return ((data ?? []) as unknown as RawPost[]).map(mapPost);
 }
 
+/**
+ * Detalle desde `posts_public`: la vista devuelve `lat`, `lng` y `whatsapp`
+ * en `null` cuando no hay sesión, sin necesidad de filtrar en la UI.
+ */
 export async function getPostById(id: string): Promise<Post | null> {
   const supabase = await createClient();
   const { data, error } = await supabase

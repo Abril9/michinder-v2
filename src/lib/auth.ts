@@ -14,6 +14,11 @@ function fallbackProfile(id: string, email: string): Profile {
   };
 }
 
+/**
+ * Usuario autenticado con su perfil. Memoizado por request: las páginas y los
+ * layouts pueden llamarlo varias veces sin repetir las consultas.
+ * Devuelve `null` si no hay sesión o si el usuario no tiene email.
+ */
 export const getCurrentUser = cache(async (): Promise<CurrentUser | null> => {
   const supabase = await createClient();
   const {
@@ -44,6 +49,10 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser | null> => {
   };
 });
 
+/**
+ * Igual que `getCurrentUser`, pero redirige al login conservando el destino.
+ * Se usa al inicio de páginas que requieren sesión.
+ */
 export async function requireUser(nextPath = "/") {
   const user = await getCurrentUser();
   if (!user) {
@@ -52,6 +61,10 @@ export async function requireUser(nextPath = "/") {
   return user;
 }
 
+/**
+ * Evita redirecciones abiertas: solo acepta rutas internas ("/algo"),
+ * nunca URLs absolutas ni "//dominio".
+ */
 export function safeNextPath(value: string | null | undefined, fallback = "/") {
   if (!value || !value.startsWith("/") || value.startsWith("//")) {
     return fallback;

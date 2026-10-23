@@ -17,6 +17,7 @@ export function isValidLatLng(value: unknown): value is LatLng {
   );
 }
 
+/** Distancia en kilómetros entre dos coordenadas (fórmula de Haversine). */
 export function haversineKm(a: LatLng, b: LatLng) {
   const toRad = (degrees: number) => (degrees * Math.PI) / 180;
   const dLat = toRad(b.lat - a.lat);
