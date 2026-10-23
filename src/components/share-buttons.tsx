@@ -63,7 +63,7 @@ export function ShareButtons({
           type="button"
           onClick={whatsapp}
           aria-label="Compartir por WhatsApp"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-[#128c7e] hover:bg-emerald-50"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-negro-tenue bg-blanco text-verde hover:bg-verde hover:text-blanco"
         >
           <MessageCircle size={17} />
         </button>

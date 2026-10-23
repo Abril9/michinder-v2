@@ -20,6 +20,7 @@ export function LocationPicker({
   value,
   label,
   radiusKm,
+  error,
   onValueChange,
   onLabelChange,
   onRadiusChange,
@@ -27,6 +28,7 @@ export function LocationPicker({
   value: LatLng;
   label: string;
   radiusKm: number;
+  error?: string;
   onValueChange: (value: LatLng) => void;
   onLabelChange: (value: string) => void;
   onRadiusChange: (value: number) => void;
@@ -71,6 +73,7 @@ export function LocationPicker({
             onChange={(event) => onLabelChange(event.target.value)}
             placeholder="Ej. Barrio Sur, cerca de la plaza"
             maxLength={120}
+            aria-invalid={error ? true : undefined}
             className="h-12 w-full rounded-2xl border border-line bg-white px-4 text-base focus:border-coral focus:outline-none"
           />
           <button
@@ -87,6 +90,9 @@ export function LocationPicker({
             {locating ? "Ubicando" : "Mi ubicación"}
           </button>
         </div>
+        {error ? (
+          <span className="mt-1 block text-xs font-bold text-fucsia">{error}</span>
+        ) : null}
       </label>
 
       <div className="h-64 overflow-hidden rounded-2xl border border-line sm:h-72">

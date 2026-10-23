@@ -14,7 +14,7 @@ export default function NotFound() {
         La página que buscás no existe. Probá desde el inicio o explorá los avisos.
       </p>
       <div className="mt-5 flex gap-2">
-        <ButtonLink href="/">Ir al inicio</ButtonLink>
+        <ButtonLink href="/" brandIcon>Ir al inicio</ButtonLink>
         <Link
           href="/explorar?estado=perdido"
           className="inline-flex h-11 items-center rounded-full border border-line bg-white px-5 text-sm font-extrabold text-ink hover:bg-cream"

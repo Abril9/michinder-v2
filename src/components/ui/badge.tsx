@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 type Tone = "lost" | "found" | "success" | "neutral" | "species";
 
 const tones: Record<Tone, string> = {
-  lost: "bg-red-50 text-red-700 ring-red-200",
-  found: "bg-emerald-50 text-emerald-800 ring-emerald-200",
-  success: "bg-emerald-600 text-white ring-emerald-700",
-  neutral: "bg-white/90 text-ink ring-line",
-  species: "bg-sand text-ink ring-peach",
+  lost: "bg-fucsia text-blanco ring-fucsia",
+  found: "bg-verde text-blanco ring-verde",
+  success: "bg-verde text-blanco ring-verde",
+  neutral: "bg-blanco text-negro ring-negro-tenue",
+  species: "bg-negro text-blanco ring-negro",
 };
 
 export function Badge({

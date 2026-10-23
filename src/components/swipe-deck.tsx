@@ -131,7 +131,7 @@ export function SwipeDeck({
             }
           }}
           style={{ x, rotate }}
-          className="absolute inset-0 cursor-grab overflow-hidden rounded-[2rem] border border-line bg-ink shadow-[0_30px_80px_-30px_rgba(29,25,22,0.65)] active:cursor-grabbing"
+          className="absolute inset-0 cursor-grab overflow-hidden rounded-[2rem] border border-line bg-ink shadow-[0_30px_80px_-30px_rgba(12,47,35,0.65)] active:cursor-grabbing"
         >
           {activePhoto ? (
             <img
@@ -178,13 +178,13 @@ export function SwipeDeck({
 
           <motion.div
             style={{ opacity: likeOpacity }}
-            className="pointer-events-none absolute left-5 top-20 rotate-[-10deg] rounded-xl border-4 border-emerald-300 px-3 py-1 text-2xl font-black uppercase tracking-wide text-emerald-300"
+            className="pointer-events-none absolute left-5 top-20 rotate-[-10deg] rounded-xl border-4 border-mint px-3 py-1 text-2xl font-black uppercase tracking-wide text-mint"
           >
             Me interesa
           </motion.div>
           <motion.div
             style={{ opacity: passOpacity }}
-            className="pointer-events-none absolute right-5 top-20 rotate-[10deg] rounded-xl border-4 border-red-300 px-3 py-1 text-2xl font-black uppercase tracking-wide text-red-300"
+            className="pointer-events-none absolute right-5 top-20 rotate-[10deg] rounded-xl border-4 border-coral px-3 py-1 text-2xl font-black uppercase tracking-wide text-coral"
           >
             Seguir
           </motion.div>
@@ -250,7 +250,7 @@ export function SwipeDeck({
           onClick={() => void trigger("like")}
           disabled={disabled}
           aria-label="Me interesa"
-          className="flex h-16 w-16 items-center justify-center rounded-full bg-coral text-white shadow-[0_14px_30px_-10px_rgba(225,29,72,0.9)] transition-transform hover:scale-105 disabled:opacity-50"
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-coral text-white shadow-[0_14px_30px_-10px_rgba(230,0,126,0.9)] transition-transform hover:scale-105 disabled:opacity-50"
         >
           <Heart size={28} strokeWidth={2.6} />
         </button>

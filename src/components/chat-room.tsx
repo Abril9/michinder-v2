@@ -151,7 +151,7 @@ export function ChatRoom({
       </div>
 
       {error ? (
-        <p className="border-t border-red-100 bg-red-50 px-4 py-2 text-xs font-bold text-red-700">
+        <p className="border-t border-fucsia bg-blanco px-4 py-2 text-xs font-bold text-fucsia">
           {error}
         </p>
       ) : null}

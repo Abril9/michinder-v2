@@ -354,8 +354,8 @@ export function ExploreClient({
 
       <div className="mt-8">
         {error ? (
-          <div className="mx-auto max-w-lg rounded-3xl border border-red-100 bg-red-50 p-8 text-center">
-            <p className="text-lg font-black text-red-800">{error}</p>
+          <div className="mx-auto max-w-lg rounded-3xl border border-fucsia bg-blanco p-8 text-center">
+            <p className="text-lg font-black text-fucsia">{error}</p>
             <Button
               className="mt-4"
               variant="outline"

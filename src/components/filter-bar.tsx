@@ -44,7 +44,7 @@ export function FilterBar({
   onReset: () => void;
 }) {
   return (
-    <section className="rounded-[1.7rem] border border-line bg-white/75 p-4 shadow-[0_18px_50px_-38px_rgba(29,25,22,0.45)] sm:p-5">
+    <section className="rounded-[1.7rem] border border-line bg-white/75 p-4 shadow-[0_18px_50px_-38px_rgba(12,47,35,0.45)] sm:p-5">
       <div className="flex items-center justify-between gap-3">
         <h2 className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-muted">
           <SlidersHorizontal size={16} /> Filtros

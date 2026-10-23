@@ -62,12 +62,12 @@ export default function MapInner({
       <Circle
         center={[marker.lat, marker.lng]}
         radius={radiusKm * 1000}
-        pathOptions={{ color: "#e11d48", fillColor: "#e11d48", fillOpacity: 0.08, weight: 2 }}
+        pathOptions={{ color: "#e6007e", fillColor: "#e6007e", fillOpacity: 0.08, weight: 2 }}
       />
       <CircleMarker
         center={[marker.lat, marker.lng]}
         radius={9}
-        pathOptions={{ color: "#ffffff", fillColor: "#e11d48", fillOpacity: 1, weight: 3 }}
+        pathOptions={{ color: "#ffffff", fillColor: "#e6007e", fillOpacity: 1, weight: 3 }}
       >
         <Tooltip direction="top" offset={[0, -8]} opacity={1}>
           {label || "Punto exacto"}

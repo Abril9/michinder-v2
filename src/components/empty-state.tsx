@@ -22,7 +22,7 @@ export function EmptyState({
       <p className="mt-2 text-sm font-semibold leading-relaxed text-muted">{text}</p>
       <div className="mt-5 flex flex-wrap justify-center gap-3">
         {actionHref && actionLabel ? (
-          <ButtonLink href={actionHref}>{actionLabel}</ButtonLink>
+          <ButtonLink href={actionHref} brandIcon>{actionLabel}</ButtonLink>
         ) : null}
         <Link
           href="/"

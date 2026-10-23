@@ -5,6 +5,9 @@ export const alt = `${SITE_NAME} · ${SITE_TAGLINE}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+const pinSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#e6007e" fill-rule="evenodd" d="M128 16c-46.4 0-84 37.6-84 84 0 63 84 148 84 148s84-85 84-148c0-46.4-37.6-84-84-84Zm0 26a58 58 0 1 0 0 116 58 58 0 0 0 0-116Z"/><g fill="#e6007e" stroke="#e6007e" stroke-width="17" stroke-linecap="round"><path d="M105.37 122.63 150.63 77.37"/><circle cx="96.18" cy="113.44" r="12.5" stroke="none"/><circle cx="114.56" cy="131.82" r="12.5" stroke="none"/><circle cx="141.44" cy="68.18" r="12.5" stroke="none"/><circle cx="159.82" cy="86.56" r="12.5" stroke="none"/></g></svg>`;
+const pinSrc = `data:image/svg+xml;base64,${btoa(pinSvg)}`;
+
 export default function OpenGraphImage() {
   return new ImageResponse(
     (
@@ -13,7 +16,7 @@ export default function OpenGraphImage() {
           display: "flex",
           height: "100%",
           width: "100%",
-          background: "linear-gradient(135deg, #fff8ef 0%, #ffe7cc 100%)",
+          background: "#ffffff",
           padding: 64,
           fontFamily: "sans-serif",
         }}
@@ -34,7 +37,7 @@ export default function OpenGraphImage() {
               gap: 12,
               fontSize: 24,
               fontWeight: 800,
-              color: "#e11d48",
+              color: "#e6007e",
               letterSpacing: 3,
               textTransform: "uppercase",
             }}
@@ -48,7 +51,7 @@ export default function OpenGraphImage() {
               fontSize: 92,
               lineHeight: 0.95,
               fontWeight: 900,
-              color: "#1d1916",
+              color: "#000000",
               letterSpacing: -4,
             }}
           >
@@ -60,7 +63,7 @@ export default function OpenGraphImage() {
               fontSize: 92,
               lineHeight: 0.95,
               fontWeight: 900,
-              color: "#1d1916",
+              color: "#000000",
               letterSpacing: -4,
             }}
           >
@@ -72,7 +75,7 @@ export default function OpenGraphImage() {
               fontSize: 76,
               lineHeight: 0.95,
               fontWeight: 900,
-              color: "#e11d48",
+              color: "#e6007e",
               letterSpacing: -3,
             }}
           >
@@ -86,7 +89,7 @@ export default function OpenGraphImage() {
               fontSize: 26,
               lineHeight: 1.35,
               fontWeight: 600,
-              color: "#6b625c",
+              color: "#333333",
             }}
           >
             {SITE_DESCRIPTION}
@@ -97,7 +100,7 @@ export default function OpenGraphImage() {
               marginTop: 30,
               fontSize: 30,
               fontWeight: 900,
-              color: "#1d1916",
+              color: "#000000",
             }}
           >
             Michinder
@@ -115,109 +118,15 @@ export default function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              position: "relative",
               alignItems: "center",
               justifyContent: "center",
-              width: 320,
-              height: 320,
-              borderRadius: 160,
-              background: "#ffd6a5",
+              width: 360,
+              height: 360,
+              borderRadius: 180,
+              background: "#ffffff",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                position: "relative",
-                width: 230,
-                height: 210,
-                borderRadius: 110,
-                background: "#1d1916",
-                marginTop: 36,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  left: 38,
-                  top: 78,
-                  width: 54,
-                  height: 64,
-                  borderRadius: 32,
-                  background: "#facc15",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    width: 14,
-                    height: 48,
-                    borderRadius: 10,
-                    background: "#1d1916",
-                  }}
-                />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  right: 38,
-                  top: 78,
-                  width: 54,
-                  height: 64,
-                  borderRadius: 32,
-                  background: "#facc15",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    width: 14,
-                    height: 48,
-                    borderRadius: 10,
-                    background: "#1d1916",
-                  }}
-                />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  left: 92,
-                  top: 138,
-                  width: 46,
-                  height: 34,
-                  background: "#fb7185",
-                  clipPath: "polygon(50% 100%, 0 0, 100% 0)",
-                }}
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                position: "absolute",
-                bottom: 58,
-                width: 190,
-                height: 54,
-                borderRadius: 16,
-                background: "#e11d48",
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                position: "absolute",
-                bottom: 22,
-                width: 78,
-                height: 64,
-                background: "#be123c",
-                clipPath: "polygon(50% 100%, 0 0, 100% 0)",
-              }}
-            />
+            <img src={pinSrc} width={260} height={260} alt="" />
           </div>
         </div>
       </div>

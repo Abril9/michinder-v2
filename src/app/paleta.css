@@ -1,0 +1,19 @@
+/*
+ * Paleta permitida de Michinder.
+ * Solo fucsia, verde oscuro, blanco y negros correspondientes.
+ */
+:root {
+  --michi-fucsia: #e6007e;
+  --michi-fucsia-rgb: 230, 0, 126;
+
+  --michi-verde-oscuro: #14532d;
+  --michi-verde-oscuro-rgb: 20, 83, 45;
+
+  --michi-blanco: #ffffff;
+  --michi-blanco-rgb: 255, 255, 255;
+
+  --michi-negro: #000000;
+  --michi-negro-rgb: 0, 0, 0;
+  --michi-negro-suave: #333333;
+  --michi-negro-tenue: #d9d9d9;
+}

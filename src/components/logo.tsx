@@ -15,14 +15,13 @@ export function Logo({ size = 44, withText = true, href = "/", className }: Logo
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <Image
         src="/logo.svg"
-        alt="Chacha, la gatita negra de pañuelo rojo"
+        alt="Michinder"
         width={size}
         height={size}
         priority
-        className="drop-shadow-sm"
       />
       {withText ? (
-        <span className="text-xl font-black tracking-tight text-ink">{SITE_NAME}</span>
+        <span className="text-xl font-black tracking-tight text-negro">{SITE_NAME}</span>
       ) : null}
     </span>
   );

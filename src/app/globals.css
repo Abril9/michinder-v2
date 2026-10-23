@@ -1,17 +1,27 @@
+@import "./paleta.css";
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
 @theme {
-  --color-cream: #fff8ef;
-  --color-sand: #ffe7cc;
-  --color-peach: #ffd6a5;
-  --color-ink: #1d1916;
-  --color-muted: #6b625c;
-  --color-line: #eadfd2;
-  --color-coral: #e11d48;
-  --color-coral-dark: #be123c;
-  --color-mint: #0f766e;
-  --color-leaf: #15803d;
+  --color-fucsia: var(--michi-fucsia);
+  --color-verde: var(--michi-verde-oscuro);
+  --color-blanco: var(--michi-blanco);
+  --color-negro: var(--michi-negro);
+  --color-negro-suave: var(--michi-negro-suave);
+  --color-negro-tenue: var(--michi-negro-tenue);
+
+  /* Alias heredados: todos apuntan a la paleta permitida */
+  --color-cream: var(--michi-blanco);
+  --color-sand: var(--michi-blanco);
+  --color-peach: var(--michi-fucsia);
+  --color-ink: var(--michi-negro);
+  --color-muted: var(--michi-negro-suave);
+  --color-line: var(--michi-negro-tenue);
+  --color-coral: var(--michi-fucsia);
+  --color-coral-dark: var(--michi-fucsia);
+  --color-mint: var(--michi-verde-oscuro);
+  --color-leaf: var(--michi-verde-oscuro);
+  --color-mint-soft: var(--michi-blanco);
   --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
 }
 
@@ -24,23 +34,31 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at 8% 0%, rgba(255, 214, 165, 0.45), transparent 32rem),
-    radial-gradient(circle at 92% 8%, rgba(225, 29, 72, 0.08), transparent 28rem),
-    var(--color-cream);
-  color: var(--color-ink);
+  background: var(--michi-blanco);
+  color: var(--michi-negro);
   font-family: var(--font-sans);
   min-height: 100dvh;
 }
 
 ::selection {
-  background: var(--color-peach);
-  color: var(--color-ink);
+  background: var(--michi-fucsia);
+  color: var(--michi-blanco);
 }
 
 :focus-visible {
-  outline: 3px solid rgba(225, 29, 72, 0.45);
+  outline: 3px solid var(--michi-fucsia);
   outline-offset: 2px;
+}
+
+/* Diseño plano: sin sombras decorativas */
+[class*="shadow-"],
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: none;
 }
 
 .leaflet-container {

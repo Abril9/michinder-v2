@@ -1,25 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-  <title id="title">Chacha, la gatita negra de pañuelo rojo</title>
-  <desc id="desc">Logo de Michinder: una gatita negra con un pañuelo rojo, en homenaje a Chacha.</desc>
-  <rect width="256" height="256" rx="64" fill="#FFF4E6"/>
-  <circle cx="128" cy="132" r="96" fill="#FFE7CC"/>
-  <path d="M58 104 44 36l52 28z" fill="#1D1916"/>
-  <path d="M198 104 212 36l-52 28z" fill="#1D1916"/>
-  <path d="M64 92 57 53l30 17z" fill="#FB7185"/>
-  <path d="M192 92 199 53l-30 17z" fill="#FB7185"/>
-  <path d="M50 116c0-38 35-62 78-62s78 24 78 62c0 42-30 78-78 78s-78-36-78-78z" fill="#1D1916"/>
-  <ellipse cx="92" cy="80" rx="30" ry="17" fill="#FFFFFF" opacity=".05"/>
-  <ellipse cx="99" cy="112" rx="15" ry="19" fill="#FACC15"/>
-  <ellipse cx="157" cy="112" rx="15" ry="19" fill="#FACC15"/>
-  <ellipse cx="99" cy="112" rx="4.5" ry="15" fill="#1D1916"/>
-  <ellipse cx="157" cy="112" rx="4.5" ry="15" fill="#1D1916"/>
-  <circle cx="104" cy="104" r="4" fill="#FFFFFF"/>
-  <circle cx="162" cy="104" r="4" fill="#FFFFFF"/>
-  <path d="M128 130 120 137h16z" fill="#FB7185"/>
-  <path d="M128 137v5m0 0c-5 7-12 8-17 2m17-2c5 7 12 8 17 2" fill="none" stroke="#FFF4E6" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M74 124 42 117m34 21-35 5m141-19 32-7m-34 21 35 5" fill="none" stroke="#FFF4E6" stroke-width="3" stroke-linecap="round" opacity=".85"/>
-  <path d="M76 174c34 18 70 18 104 0l-9 25c-28 14-58 14-86 0z" fill="#E11D48"/>
-  <path d="M128 190c9 10 16 23 18 37-8 7-28 7-36 0 2-14 9-27 18-37z" fill="#BE123C"/>
-  <path d="M96 186c10 8 21 12 32 12s22-4 32-12" fill="none" stroke="#FB7185" stroke-width="3" stroke-linecap="round" opacity=".55"/>
-  <circle cx="128" cy="213" r="3.5" fill="#FFF4E6" opacity=".9"/>
+  <title id="title">Michinder</title>
+  <desc id="desc">Pin de ubicación con un hueso.</desc>
+  <path fill="#e6007e" fill-rule="evenodd" d="M128 16c-46.4 0-84 37.6-84 84 0 63 84 148 84 148s84-85 84-148c0-46.4-37.6-84-84-84Zm0 26a58 58 0 1 0 0 116 58 58 0 0 0 0-116Z"/>
+  <g fill="#e6007e" stroke="#e6007e" stroke-width="17" stroke-linecap="round">
+    <path d="M105.37 122.63 150.63 77.37"/>
+    <circle cx="96.18" cy="113.44" r="12.5" stroke="none"/>
+    <circle cx="114.56" cy="131.82" r="12.5" stroke="none"/>
+    <circle cx="141.44" cy="68.18" r="12.5" stroke="none"/>
+    <circle cx="159.82" cy="86.56" r="12.5" stroke="none"/>
+  </g>
 </svg>
